@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import "@progress/kendo-theme-default/dist/all.css";
+import "./App.css";
+import DrawerContainer from "./component/admin/DrawerContainer";
+import { BrowserRouter } from "react-router-dom";
+import FormInput from "./component/admin/FormInput";
+import { Routes, Route } from "react-router-dom";
+import DataGrid from "./component/admin/DataGrid";
+import Update from "./component/admin/Update";
+import SignupForm from "./component/login/SignupForm";
+import LoginForm from "./component/login/LoginForm";
+import ForgotPassword from "./component/login/ForgotPassword";
+import { userAuthStore } from "./store/Authstore";
 function App() {
+  const { loggedIn } = userAuthStore();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        {!loggedIn && (
+          <Routes>
+            <Route path="/" element={<LoginForm />}></Route>
+            <Route path="/signup" element={<SignupForm />}></Route>
+            <Route path="/forgot" element={<ForgotPassword />}></Route>
+          </Routes>
+        )}
+        {loggedIn && (
+          <DrawerContainer>
+            <Routes>
+              <Route path="/create" element={<FormInput />}></Route>
+              <Route path="/data-grid" element={<DataGrid />}></Route>
+              <Route path="/update/:id" element={<Update />}></Route>
+            </Routes>
+          </DrawerContainer>
+        )}
+      </BrowserRouter>
+    </>
   );
 }
 

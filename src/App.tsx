@@ -10,7 +10,9 @@ import Update from "./component/admin/Update";
 import SignupForm from "./component/login/SignupForm";
 import LoginForm from "./component/login/LoginForm";
 import ForgotPassword from "./component/login/ForgotPassword";
+import Roles from "./component/roles/Roles";
 import { userAuthStore } from "./store/Authstore";
+import Footer from "./component/admin/Footer";
 function App() {
   const { loggedIn } = userAuthStore();
   return (
@@ -24,13 +26,17 @@ function App() {
           </Routes>
         )}
         {loggedIn && (
-          <DrawerContainer>
-            <Routes>
-              <Route path="/create" element={<FormInput />}></Route>
-              <Route path="/data-grid" element={<DataGrid />}></Route>
-              <Route path="/update/:id" element={<Update />}></Route>
-            </Routes>
-          </DrawerContainer>
+          <>
+            <DrawerContainer>
+              <Routes>
+                <Route path="/create" element={<FormInput />}></Route>
+                <Route path="/data-grid" element={<DataGrid />}></Route>
+                <Route path="/update/:id" element={<Update />}></Route>
+                <Route path="/roles" element={<Roles />}></Route>
+              </Routes>
+            </DrawerContainer>
+            <Footer />
+          </>
         )}
       </BrowserRouter>
     </>

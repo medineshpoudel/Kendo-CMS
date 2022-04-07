@@ -19,15 +19,17 @@ const nameValidator = (value: any) =>
   usernameRegex.test(value) ? "" : "please enter the valid username";
 const passwordValidator = (value: any) =>
   passwordRegex.test(value) ? "" : "password must contain 8 characters";
-const EmailInput = (fieldRenderProps: any) => {
-  const { validationMessage, visited, ...others } = fieldRenderProps;
-  return (
-    <div>
-      <Input {...others} />
-      {visited && validationMessage && <Error>{validationMessage}</Error>}
-    </div>
-  );
-};
+// const EmailInput = (fieldRenderProps: any) => {
+//   const { validationMessage, visited, ...others } = fieldRenderProps;
+//   return (
+//     <div>
+//       <Input {...others} />
+//       {visited && validationMessage && (
+//         <Error data-typeId="email-validation-error">{validationMessage}</Error>
+//       )}
+//     </div>
+//   );
+// };
 const DUMMY_DETAILS = {
   email: "dinesh@gmail.com",
   password: "password",
@@ -116,7 +118,7 @@ const LoginForm = () => {
             </button>
           </div>
           {loginError ? (
-            <div style={{ color: "red" }}>
+            <div data-typeId="login-error" style={{ color: "red" }}>
               <p>Please enter correct password</p>
             </div>
           ) : (

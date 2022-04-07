@@ -176,7 +176,7 @@ const Update = () => {
                   />
 
                   <RadioButton
-                    name="group1"
+                    name="group2"
                     value="female"
                     checked={selectedValue === "female"}
                     label="Female"

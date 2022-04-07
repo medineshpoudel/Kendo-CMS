@@ -186,7 +186,7 @@ const FormInput = () => {
                   />
 
                   <RadioButton
-                    name="group1"
+                    name="group2"
                     value="female"
                     checked={selectedValue === "female"}
                     label="Female"
@@ -198,6 +198,7 @@ const FormInput = () => {
                 <div style={{ marginTop: "10px" }}>
                   I agree to license{" "}
                   <Switch
+                    name="agreeSwitch"
                     onLabel={"Yes"}
                     offLabel={"No"}
                     onChange={(e) => {

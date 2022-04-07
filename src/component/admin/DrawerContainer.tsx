@@ -49,23 +49,9 @@ const DrawerContainer = (props: any) => {
       text: "Categories",
       icon: "k-i-rows",
       id: 2,
-      ["data-expanded"]: true,
-      route: "/food",
+      route: "/roles",
     },
-    {
-      text: "Japanese Food",
-      icon: "k-i-minus",
-      id: 4,
-      parentId: 2,
-      route: "/food/japanese",
-    },
-    {
-      text: "Italian Food",
-      icon: "k-i-minus",
-      id: 5,
-      parentId: 2,
-      route: "/food/italian",
-    },
+
     { separator: true },
     {
       text: "Product",

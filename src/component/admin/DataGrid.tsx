@@ -36,10 +36,13 @@ const DataGrid = () => {
         <Button
           style={{ marginLeft: "10px", marginRight: "10px" }}
           onClick={updateHandler}
+          data-testId="update-button"
         >
           Update
         </Button>
-        <Button onClick={deleteHandler}>Delete</Button>
+        <Button onClick={deleteHandler} data-testId="delete-button">
+          Delete
+        </Button>
       </td>
     );
   };
@@ -94,7 +97,7 @@ const DataGrid = () => {
               closable={true}
               onClose={() => setSuccess(false)}
             >
-              <span>Your data has been added.</span>
+              <span data-testId="add-toast">Your data has been added.</span>
             </Notification>
           )}
         </Fade>
